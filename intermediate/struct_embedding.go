@@ -1,4 +1,4 @@
-package main
+package intermediate
 
 import "fmt"
 
@@ -8,18 +8,22 @@ type person struct {
 }
 
 // Employee struct embed the fields and methods of person
-type Employee struct {
+type employee struct {
 	person // Embedded struct
 	empId  string
 	salary float64
 }
 
-func (p person) nameAndAge() {
+func (p person) introduce() {
 	fmt.Println("Name: ", p.name, "Age: ", p.age)
 }
 
+func (e employee) introduce() {
+	fmt.Println("Name: ", e.name, "Age: ", e.age, "Emp ID", e.empId, "salary", e.salary)
+}
+
 func main() {
-	emp := Employee{
+	emp := employee{
 		person: person{name: "Noy", age: 43},
 		empId:  "123",
 		salary: 10000,
@@ -29,5 +33,5 @@ func main() {
 	fmt.Println("Age: ", emp.age)
 	fmt.Println("Employee ID: ", emp.empId)
 	fmt.Println("Employee Salary", emp.salary)
-	emp.nameAndAge()
+	emp.introduce()
 }

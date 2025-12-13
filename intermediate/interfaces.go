@@ -6,7 +6,7 @@ import (
 )
 
 // Since geometry is small case interface
-// it won't be exported from package main
+// it won't be exported from
 type geometry interface {
 	area() float64
 	perim() float64
