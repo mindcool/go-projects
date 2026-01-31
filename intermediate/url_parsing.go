@@ -37,15 +37,15 @@ func main() {
 	// Method 1: Build URL from scratch using url.URL struct
 	// This creates a URL object with individual components
 	baseUrl := &url.URL{
-		Scheme: "https",           // Protocol (http, https, ftp, etc.)
-		Host:   "example.com",     // Domain name (can include port like "example.com:8080")
-		Path:   "/api/users",      // Path part of URL
+		Scheme: "https",       // Protocol (http, https, ftp, etc.)
+		Host:   "example.com", // Domain name (can include port like "example.com:8080")
+		Path:   "/api/users",  // Path part of URL
 	}
 	// At this point: baseUrl = "https://example.com/api/users"
-	
+
 	// Adding query parameters to the URL object
-	query := baseUrl.Query() // Returns an empty url.Values map
-	query.Set("name", "John")  // Set adds or replaces a parameter
+	query := baseUrl.Query()  // Returns an empty url.Values map
+	query.Set("name", "John") // Set adds or replaces a parameter
 	query.Set("age", "42")
 	baseUrl.RawQuery = query.Encode() // IMPORTANT: Must encode and assign back to RawQuery
 	fmt.Println("Built URL: ", baseUrl.String())
@@ -80,13 +80,13 @@ func main() {
 		User:     url.UserPassword("admin", "secret"), // Optional: username:password
 		Host:     "api.example.com:443",               // Host with port
 		Path:     "/v1/search",
-		Fragment: "results",                           // The #fragment part
+		Fragment: "results", // The #fragment part
 	}
 	params := url.Values{}
 	params.Set("q", "golang tutorials")
 	params.Set("limit", "10")
 	completeUrl.RawQuery = params.Encode()
-	
+
 	fmt.Println("Complete URL:", completeUrl.String())
 	// Output: https://admin:secret@api.example.com:443/v1/search?limit=10&q=golang+tutorials#results
 }
