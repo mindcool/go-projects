@@ -1,0 +1,2 @@
+INFO: 2026/02/01 12:43:22 logging.go:35: This is a debug message
+DEBUG: 2026/02/01 12:44:13 logging.go:35: This is a debug message
